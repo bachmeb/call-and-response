@@ -4,817 +4,580 @@
 
 
 ##### Ask who am I?
-	whoami
-    
+```
+whoami
+```    
 ##### Check the value of the home directory environment variable
-	echo $HOME
-
+```
+echo $HOME
+```
 ##### Go home
-	cd ~
-
+```
+cd ~
+```
 ##### Check the Linux distro version
-	cat /proc/version
+```
+cat /proc/version
+```
+> ```
+> Linux version 5.13.4-200.fc34.x86_64 (mockbuild@bkernel01.iad2.fedoraproject.org) (gcc (GCC) 11.1.1 20210531 (Red Hat 11.1.1-3), GNU ld version 2.35.1-41.fc34) #1 SMP Tue Jul 20 20:27:29 UTC 2021
 
 ##### Check the hostname of the ec2 instance
-	hostname
+```
+hostname
+```
+> ```
+> fedora
 
 ##### Check the DNS domain name of the ec2 instance
-	dnsdomainname
-
+```
+dnsdomainname
+```
 ##### Check the internal IP address
-	ifconfig
-
+```
+ifconfig
+```
 ##### Check the external IP address
-	wget http://ipinfo.io/ip -qO -
-
+```
+wget http://ipinfo.io/ip -qO -
+```
 ##### Show all of the environment variables
-	declare
-
+```
+declare
+```
 ##### Look for JAVA in the list of environmental variables
-	env | grep JAVA
-
+```
+env | grep JAVA
+```
 ##### Echo the current JAVA_HOME
-	echo $JAVA_HOME
-
+```
+echo $JAVA_HOME
+```
 ##### Ask where is Java?
-	whereis java
-
+```
+whereis java
+```
 ##### Check the Java version
-	java -version
-
-##### See if the Java compiler is installed
-	whereis javac
-	javac -version
-
+```
+java -version
+```
 ##### Search yum for openjdk
-	yum search openjdk
-	
-##### Install the Open JDK version 1.7
-	sudo yum install java-1.7.0-openjdk-devel
+```
+yum search openjdk
+```	
+##### Install the latest Open JDK version
+```
+sudo yum install java-latest-openjdk
+```
+> ```
+> Last metadata expiration check: 0:06:58 ago on Sat 16 Oct 2021 12:59:35 PM EDT.
+> Package java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64 is already installed.
+> Dependencies resolved.
+> Nothing to do.
+> Complete!
 
-##### Check the Java compiler version
-	javac -version
+##### Update the latest version of Open JDK
+```
+sudo yum update java-latest-openjdk
+```
+> ```
+> Last metadata expiration check: 0:08:14 ago on Sat 16 Oct 2021 12:59:35 PM EDT.
+> Dependencies resolved.
+> ================================================================================================================================
+>  Package               Architecture                       Version                 Repository                            Size
+> ================================================================================================================================
+> Upgrading:
+>  java-latest-openjdk            x86_64             1:17.0.0.0.35-1.rolling.fc34            updates                      229 k
+>  java-latest-openjdk-headless   x86_64             1:17.0.0.0.35-1.rolling.fc34            updates                       40 M
+> 
+> Transaction Summary
+> ================================================================================================================================
+> Upgrade  2 Packages
+> 
+> Total download size: 40 M
+> Is this ok [y/N]: 
+> Downloading Packages:
+> (1/2): java-latest-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64.rpm                                                                                                      158 kB/s | 229 kB     00:01    
+> (2/2): java-latest-openjdk-headless-17.0.0.0.35-1.rolling.fc34.x86_64.rpm                                                                                             2.4 MB/s |  40 MB     00:16    
+> --------------------------------------------------------------------------------------------------------------------------------
+> Total                                                                                                                                                                 2.3 MB/s |  40 MB     00:17     
+> Running transaction check
+> Transaction check succeeded.
+> Running transaction test
+> Transaction test succeeded.
+> Running transaction
+>   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      1/1 
+>   Preparing        :                                                                                                       1/1 
+>   Upgrading        : java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      1/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      1/4 
+>   Upgrading        : java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                               2/4 
+>   Running scriptlet: java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                               2/4 
+>   Cleanup          : java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_                                                  3/4 
+>   Running scriptlet: java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                3/4 
+>   Cleanup          : java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                              4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                       4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                             4/4 
+>   Running scriptlet: java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                                      4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                              4/4 
+>   Verifying        : java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                                      1/4 
+>   Verifying        : java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                                       2/4 
+>   Verifying        : java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                             3/4 
+>   Verifying        : java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                              4/4 
+> 
+> Upgraded:
+>   java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                       java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      
+> 
+> Complete!
+> 
 
-##### Tell Linux to use the Java interpreter in the JDK 1.7
-	sudo /usr/sbin/alternatives --config java
+##### Check the java version
+```
+java -version
+```
+
+##### Tell Linux which java version to use
+```
+sudo /usr/sbin/alternatives --config java
+```
+> ```
+> There are 2 programs which provide 'java'.
+> 
+>   Selection    Command
+> -----------------------------------------------
+> *+ 1           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.11.0.9-5.fc34.x86_64/bin/java)
+>    2           java-latest-openjdk.x86_64 (/usr/lib/jvm/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64/bin/java)
+> 
+> Enter to keep the current selection[+], or type selection number: 2
 
 ##### Read the symlinks in /usr/lib/jvm/
-	ls -l /usr/lib/jvm/
+```
+ls -l /usr/lib/jvm/
+```
+> ```
+> total 8
+> lrwxrwxrwx. 1 root root   26 Jun 27 15:55 java -> /etc/alternatives/java_sdk
+> lrwxrwxrwx. 1 root root   29 Jun 27 15:55 java-11 -> /etc/alternatives/java_sdk_11
+> lrwxrwxrwx. 1 root root   37 Jun 27 15:55 java-11-openjdk -> /etc/alternatives/java_sdk_11_openjdk
+> drwxr-xr-x. 7 root root 4096 Jul 22 20:34 java-11-openjdk-11.0.11.0.9-5.fc34.x86_64
+> drwxr-xr-x. 5 root root 4096 Oct 16 13:11 java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64
+> lrwxrwxrwx. 1 root root   34 Jun 27 15:55 java-openjdk -> /etc/alternatives/java_sdk_openjdk
+> lrwxrwxrwx. 1 root root   21 Apr 23 06:57 jre -> /etc/alternatives/jre
+> lrwxrwxrwx. 1 root root   24 Apr 23 06:57 jre-11 -> /etc/alternatives/jre_11
+> lrwxrwxrwx. 1 root root   32 Apr 23 06:57 jre-11-openjdk -> /etc/alternatives/jre_11_openjdk
+> lrwxrwxrwx. 1 root root   41 Jul  8 01:55 jre-11-openjdk-11.0.11.0.9-5.fc34.x86_64 -> java-11-openjdk-11.0.11.0.9-5.fc34.x86_64
+> lrwxrwxrwx. 1 root root   24 Oct 16 13:11 jre-17 -> /etc/alternatives/jre_17
+> lrwxrwxrwx. 1 root root   32 Oct 16 13:11 jre-17-openjdk -> /etc/alternatives/jre_17_openjdk
+> lrwxrwxrwx. 1 root root   49 Sep 14 20:40 jre-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64 -> java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64
+> lrwxrwxrwx. 1 root root   29 Apr 23 06:57 jre-openjdk -> /etc/alternatives/jre_openjdk
 
-##### Confirm that /usr/lib/jvm/java points to etc/alternatives/java_sdk
-	ls -l /usr/lib/jvm/java
+##### Confirm that /etc/alternatives/jre points to the latest openjdk version
+```
+ls -la /etc/alternatives/jre
+```
+> ```
+> lrwxrwxrwx. 1 root root 62 Oct 16 13:15 /etc/alternatives/jre -> /usr/lib/jvm/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64
 
-##### Confirm that /etc/alternatives/java_sdk points to /usr/lib/jvm/java-1.7.0-openjdk.x86_64
-	ls -l /etc/alternatives/java_sdk
+##### Check the java version
+```
+java -version
+```
+> ```
+> openjdk version "17" 2021-09-14
+> OpenJDK Runtime Environment 21.9 (build 17+35)
+> OpenJDK 64-Bit Server VM 21.9 (build 17+35, mixed mode, sharing)
 
-##### Confirm that /usr/lib/jvm/java-1.7.0-openjdk.x86_64 points to /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.91.x86_64
-	ls -l /usr/lib/jvm/java-1.7.0-openjdk.x86_64
+##### Check the Java compiler version
+```
+javac -version
+```
+> ```
+> javac 11.0.11
 
-##### Confirm that /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.91.x86_64 is the installation directory for Java SDK 1.7
-	ls -l /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.91.x86_64
+##### Install the latest java compiler version
+```
+sudo yum install java-latest-openjdk-devel
+```
+> Last metadata expiration check: 0:38:10 ago on Sat 16 Oct 2021 12:59:35 PM EDT.
+> Dependencies resolved.
+> ============================================================================================================
+>  Package                          Architecture  Version                                Repository      Size
+> ============================================================================================================
+> Installing:
+>  java-latest-openjdk-devel        x86_64        1:17.0.0.0.35-1.rolling.fc34           updates        4.7 M
+> 
+> Transaction Summary
+> ============================================================================================================
+> Install  1 Package
+> 
+> Total download size: 4.7 M
+> Installed size: 8.9 M
+> Is this ok [y/N]: y
+> Downloading Packages:
+> java-latest-openjdk-devel-17.0.0.0.35-1.rolling.fc34.x86_64.rpm             2.0 MB/s | 4.7 MB     00:02    
+> ------------------------------------------------------------------------------------------------------------
+> Total                                                                       1.5 MB/s | 4.7 MB     00:03     
+> Running transaction check
+> Transaction check succeeded.
+> Running transaction test
+> Transaction test succeeded.
+> Running transaction
+>   Preparing        :                                                                                    1/1 
+>   Installing       : java-latest-openjdk-devel-1:17.0.0.0.35-1.rolling.fc34.x86_64                      1/1 
+>   Running scriptlet: java-latest-openjdk-devel-1:17.0.0.0.35-1.rolling.fc34.x86_64                      1/1 
+>   Verifying        : java-latest-openjdk-devel-1:17.0.0.0.35-1.rolling.fc34.x86_64                      1/1 
+> 
+> Installed:
+>   java-latest-openjdk-devel-1:17.0.0.0.35-1.rolling.fc34.x86_64                                             
+> 
+> Complete!
+
+
+##### Tell Linux which Java compiler to use
+```
+sudo /usr/sbin/alternatives --config javac
+```
+> ```
+> sudo /usr/sbin/alternatives --config javac
+> 
+> There are 2 programs which provide 'javac'.
+> 
+>   Selection    Command
+> -----------------------------------------------
+> *+ 1           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.11.0.9-5.fc34.x86_64/bin/javac)
+>    2           java-latest-openjdk.x86_64 (/usr/lib/jvm/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64/bin/javac)
+> 
+> Enter to keep the current selection[+], or type selection number: 2
+
+##### Confirm that /usr/lib/jvm/java points to /etc/alternatives/java_sdk
+```
+ls -l /usr/lib/jvm/java
+```
+> ```
+> lrwxrwxrwx. 1 root root 26 Jun 27 15:55 /usr/lib/jvm/java -> /etc/alternatives/java_sdk
+
+##### Confirm that /etc/alternatives/java_sdk points to the installation directory for the latest jdk version
+```
+ls -l /etc/alternatives/java_sdk
+```
+> ```
+> lrwxrwxrwx. 1 root root 62 Oct 16 13:40 /etc/alternatives/java_sdk -> /usr/lib/jvm/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64
+
+##### List the contents of the jdk installation directory
+```
+ls -la /usr/lib/jvm/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64
+```
+> ```
+> total 36
+> drwxr-xr-x.  7 root root 4096 Oct 16 13:38 .
+> drwxr-xr-x.  4 root root 4096 Oct 16 13:38 ..
+> drwxr-xr-x.  2 root root 4096 Oct 16 13:38 bin
+> lrwxrwxrwx.  1 root root   80 Sep 14 20:40 conf -> /etc/java/java-17-openjdk/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64/conf
+> drwxr-xr-x.  3 root root 4096 Oct 16 13:38 include
+> drwxr-xr-x. 72 root root 4096 Oct 16 13:11 legal
+> drwxr-xr-x.  4 root root 4096 Oct 16 13:38 lib
+> -rw-r--r--.  1 root root 1209 Sep 14 20:25 release
+> drwxr-xr-x.  2 root root 4096 Oct 16 13:38 tapset
 
 ##### Echo the $JAVA_HOME environment variable
-	echo $JAVA_HOME
+```
+echo $JAVA_HOME
+```
+> ```
+> 
 
 ##### Set the JAVA_HOME environment variable to the Open JDK directory
-	export JAVA_HOME='/usr/lib/jvm/java'
+```
+export JAVA_HOME='/usr/lib/jvm/java'
+```
 
 ##### Echo the $JAVA_HOME environment variable
-	echo $JAVA_HOME
+```
+echo $JAVA_HOME
+```
+> ```
+> /usr/lib/jvm/java
 
 ##### List the available tomcat packages in yum
-    yum --enablerepo="*" list available | grep tomcat
+```
+yum --enablerepo="*" list available | grep tomcat
+```
+> ```
+> yum list available | grep tomcat
+> tomcat.noarch                                                                            1:9.0.53-1.fc34                                                  updates              
+> tomcat-admin-webapps.noarch                                                              1:9.0.53-1.fc34                                                  updates              
+> tomcat-docs-webapp.noarch                                                                1:9.0.53-1.fc34                                                  updates              
+> tomcat-el-3.0-api.noarch                                                                 1:9.0.53-1.fc34                                                  updates              
+> tomcat-jsp-2.3-api.noarch                                                                1:9.0.53-1.fc34                                                  updates              
+> tomcat-jsvc.noarch                                                                       1:9.0.53-1.fc34                                                  updates              
+> tomcat-lib.noarch                                                                        1:9.0.53-1.fc34                                                  updates              
+> tomcat-native.x86_64                                                                     1.2.23-4.fc34                                                    fedora               
+> tomcat-servlet-4.0-api.noarch                                                            1:9.0.53-1.fc34                                                  updates              
+> tomcat-taglibs-parent.noarch                                                             3-14.fc34                                                        fedora               
+> tomcat-taglibs-standard.noarch                                                           1.2.5-13.fc34                                                    fedora               
+> tomcat-taglibs-standard-javadoc.noarch                                                   1.2.5-13.fc34                                                    fedora               
+> tomcat-webapps.noarch                                                                    1:9.0.53-1.fc34                                                  updates              
+> tomcatjss.noarch                                                                         7.6.1-2.fc34                                                     fedora               
+> 
 
-##### Search yum for tomcat7
-    yum search tomcat7
+##### Search yum for tomcat
+```
+yum search tomcat
+```
+> ```
+> Last metadata expiration check: 3:20:32 ago on Sat 16 Oct 2021 10:38:26 AM EDT.
+> ==================================== Name Exactly Matched: tomcat =======================================
+> tomcat.noarch : Apache Servlet/JSP Engine, RI for Servlet 4.0/JSP 2.3 API
+> =================================== Name & Summary Matched: tomcat ======================================
+> tomcat-admin-webapps.noarch : The host-manager and manager web applications for Apache Tomcat
+> tomcat-docs-webapp.noarch : The docs web application for Apache Tomcat
+> tomcat-el-3.0-api.noarch : Apache Tomcat Expression Language v3.0 API Implementation Classes
+> tomcat-jsp-2.3-api.noarch : Apache Tomcat JavaServer Pages v2.3 API Implementation Classes
+> tomcat-jsvc.noarch : Apache jsvc wrapper for Apache Tomcat as separate service
+> tomcat-lib.noarch : Libraries needed to run the Tomcat Web container
+> tomcat-native.x86_64 : Tomcat native library
+> tomcat-servlet-4.0-api.noarch : Apache Tomcat Java Servlet v4.0 API Implementation Classes
+> tomcat-taglibs-standard-javadoc.noarch : Javadoc for tomcat-taglibs-standard
+> tomcat-webapps.noarch : The ROOT and examples web applications for Apache Tomcat
+> tomcatjss.noarch : JSS Connector for Apache Tomcat
+> ======================================== Name Matched: tomcat ===========================================
+> tomcat-taglibs-parent.noarch : Apache Taglibs Parent
+> tomcat-taglibs-standard.noarch : Apache Standard Taglib
+> ======================================= Summary Matched: tomcat =========================================
+> mod_cluster.x86_64 : Apache HTTP Server dynamic load balancer with Wildfly and Tomcat libraries
+
 
 ##### Install Tomcat
-    sudo yum install tomcat7 tomcat7-webapps tomcat7-admin-webapps
+```
+sudo yum install tomcat tomcat-webapps tomcat-admin-webapps
+```
+> ```
+> sudo yum install tomcat tomcat-webapps tomcat-admin-webapps
+> Last metadata expiration check: 1:01:19 ago on Sat 16 Oct 2021 12:59:35 PM EDT.
+> Dependencies resolved.
+> =====================================================================================================
+>  Package                          Architecture    Version                     Repository        Size
+> =====================================================================================================
+> Installing:
+>  tomcat                           noarch          1:9.0.53-1.fc34             updates           89 k
+>  tomcat-admin-webapps             noarch          1:9.0.53-1.fc34             updates           72 k
+>  tomcat-webapps                   noarch          1:9.0.53-1.fc34             updates          311 k
+> Installing dependencies:
+>  apache-commons-daemon            x86_64          1.2.4-1.fc34                fedora            55 k
+>  ecj                              noarch          1:4.19-1.fc34               fedora           2.8 M
+>  tomcat-el-3.0-api                noarch          1:9.0.53-1.fc34             updates          104 k
+>  tomcat-jsp-2.3-api               noarch          1:9.0.53-1.fc34             updates           63 k
+>  tomcat-lib                       noarch          1:9.0.53-1.fc34             updates          5.4 M
+>  tomcat-servlet-4.0-api           noarch          1:9.0.53-1.fc34             updates          281 k
+>  tomcat-taglibs-standard          noarch          1.2.5-13.fc34               fedora           409 k
+> Installing weak dependencies:
+>  tomcat-native                    x86_64          1.2.23-4.fc34               fedora            82 k
+> 
+> Transaction Summary
+> =====================================================================================================
+> Install  11 Packages
+> 
+> Total download size: 9.6 M
+> Installed size: 12 M
+> Is this ok [y/N]: y
 
-##### Ask where is tomcat7?
-    whereis tomcat7
+##### Ask where is tomcat?
+```
+whereis tomcat
+```
+> ```
+> tomcat: /usr/sbin/tomcat /etc/tomcat /usr/libexec/tomcat /usr/share/tomcat
 
 ##### Get a listing of the Catalina Base directory
-    ls -l /usr/share/tomcat7/
-```    
-total 4
-drwxr-xr-x 2 root root   4096 Jan 31 18:48 bin
-lrwxrwxrwx 1 root tomcat   12 Jan 31 18:48 conf -> /etc/tomcat7
-lrwxrwxrwx 1 root tomcat   23 Jan 31 18:48 lib -> /usr/share/java/tomcat7
-lrwxrwxrwx 1 root tomcat   16 Jan 31 18:48 logs -> /var/log/tomcat7
-lrwxrwxrwx 1 root tomcat   23 Jan 31 18:48 temp -> /var/cache/tomcat7/temp
-lrwxrwxrwx 1 root tomcat   24 Jan 31 18:48 webapps -> /var/lib/tomcat7/webapps
-lrwxrwxrwx 1 root tomcat   23 Jan 31 18:48 work -> /var/cache/tomcat7/work
 ```
+ls -l /usr/share/tomcat/
+```
+> ```    
+> total 4
+> drwxr-xr-x. 2 root root   4096 Oct 16 14:01 bin
+> lrwxrwxrwx. 1 root tomcat   11 Sep 16 06:30 conf -> /etc/tomcat
+> lrwxrwxrwx. 1 root tomcat   22 Sep 16 06:30 lib -> /usr/share/java/tomcat
+> lrwxrwxrwx. 1 root tomcat   15 Sep 16 06:30 logs -> /var/log/tomcat
+> lrwxrwxrwx. 1 root tomcat   22 Sep 16 06:30 temp -> /var/cache/tomcat/temp
+> lrwxrwxrwx. 1 root tomcat   23 Sep 16 06:30 webapps -> /var/lib/tomcat/webapps
+> lrwxrwxrwx. 1 root tomcat   22 Sep 16 06:30 work -> /var/cache/tomcat/work
 
 ##### Check what is listening on port 8080
-    sudo lsof -ni:8080
-    
-##### Start Tomcat service
-    sudo service tomcat7 status
-    sudo service tomcat7 start
-    sudo service --status-all | grep tomcat
+```
+sudo lsof -ni:8080
+```    
+##### Check the status of the tomcat service
+```
+sudo service tomcat status
+```
+> ```
+> Redirecting to /bin/systemctl status tomcat.service
+> ○ tomcat.service - Apache Tomcat Web Application Container
+>      Loaded: loaded (/usr/lib/systemd/system/tomcat.service; disabled; vendor preset: disabled)
+>      Active: inactive (dead)
+
+##### Start the tomcat service
+```
+sudo service tomcat start
+```
+> ```
+> Redirecting to /bin/systemctl start tomcat.service
+
+##### Check the status of the tomcat service
+```
+sudo service tomcat status
+```
+> ```
+> Redirecting to /bin/systemctl status tomcat.service
+> ● tomcat.service - Apache Tomcat Web Application Container
+>      Loaded: loaded (/usr/lib/systemd/system/tomcat.service; disabled; vendor preset: disabled)
+>      Active: active (running) since Sat 2021-10-16 14:06:05 EDT; 2min 1s ago
+>    Main PID: 109201 (java)
+>       Tasks: 26 (limit: 4517)
+>      Memory: 148.6M
+>         CPU: 7.639s
+>      CGroup: /system.slice/tomcat.service
+>              └─109201 /usr/lib/jvm/jre/bin/java -agentpath:/usr/lib/abrt-java-connector/libabrt-java>
+> 
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.453 INFO [main] org.apache.jasper.servle>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.457 INFO [main] org.apache.catalina.star>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.458 INFO [main] org.apache.catalina.star>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.697 INFO [main] org.apache.jasper.servle>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.725 INFO [main] org.apache.catalina.star>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.726 INFO [main] org.apache.catalina.star>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.961 INFO [main] org.apache.jasper.servle>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.967 INFO [main] org.apache.catalina.star>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.972 INFO [main] org.apache.coyote.Abstra>
+> Oct 16 14:06:10 fedora server[109201]: 16-Oct-2021 14:06:10.991 INFO [main] org.apache.catalina.star>
+
 
 ##### Grep the output of the process status command for tomcat
-	ps -ef | grep tomcat
+```
+ps -ef | grep tomcat
+```
+> ```
+> tomcat    109201       1  2 14:06 ?        00:00:08 /usr/lib/jvm/jre/bin/java -agentpath:/usr/lib/abrt-java-connector/libabrt-java-connector.so=abrt=on, -Djavax.sql.DataSource.Factory=org.apache.commons.dbcp.BasicDataSourceFactory -classpath /usr/share/tomcat/bin/bootstrap.jar:/usr/share/tomcat/bin/tomcat-juli.jar:/usr/lib/java/commons-daemon.jar -Dcatalina.base=/usr/share/tomcat -Dcatalina.home=/usr/share/tomcat -Djava.endorsed.dirs= -Djava.io.tmpdir=/var/cache/tomcat/temp -Djava.util.logging.config.file=/usr/share/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager org.apache.catalina.startup.Bootstrap start
 
 ##### Check what is listening on port 8080
-    sudo lsof -ni:8080
+```
+sudo lsof -ni:8080
+```
+> ```
+> COMMAND    PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+> java    109201 tomcat   44u  IPv6 759216      0t0  TCP *:webcache (LISTEN)
 
 ##### Install Lynx
-    sudo yum install lynx
-
+```
+sudo yum install lynx
+```
 ##### Go to the Tomcat welcome page
-    lynx localhost:8080
 ```
-Apache Tomcat/7.0.65
-If you're seeing this, you've successfully installed Tomcat. Congratulations!
+lynx localhost:8080
 ```
-    
+> ```
+>                                              Apache Tomcat/9.0.53 (p1 of 3)
+>    Home Documentation Configuration Examples Wiki Mailing Lists Find Help
+> 
+> Apache Tomcat/9.0.53
+> 
+> If you're seeing this, you've successfully installed Tomcat. Congratulations!
+> 
+>    [tomcat logo]
+> 
+> Recommended Reading:
+> 
+> Security Considerations How-To
+> 
+> Manager Application How-To
+> 
+> Clustering/Session Replication How-To
+> 
+>    Server Status
+>    Manager App
+>    Host Manager
+> 
+> Developer Quick Start
+
+  
 ##### List the contents of the Tomcat logs directory
-	sudo ls -l /usr/share/tomcat7/logs/
+```
+sudo ls -l /usr/share/tomcat/logs/
+```
+> ```
+> total 16
+> -rw-r--r--. 1 tomcat tomcat 7989 Oct 16 14:06 catalina.2021-10-16.log
+> -rw-r--r--. 1 tomcat tomcat    0 Oct 16 14:06 host-manager.2021-10-16.log
+> -rw-r--r--. 1 tomcat tomcat  408 Oct 16 14:06 localhost.2021-10-16.log
+> -rw-r--r--. 1 tomcat tomcat  152 Oct 16 14:17 localhost_access_log.2021-10-16.txt
+> -rw-r--r--. 1 tomcat tomcat    0 Oct 16 14:06 manager.2021-10-16.log
 	
 ##### Read the catalina.out file
-	sudo cat /usr/share/tomcat7/logs/catalina.out
-
+```
+sudo cat /usr/share/tomcat/logs/catalina.2021-10-16.log
+```
 ##### Read the localhost access log
-	sudo find /usr/share/tomcat7/logs/ -name localhost* -exec cat {} \;
+```
+sudo find /usr/share/tomcat/logs/ -name localhost* -exec cat {} \;
+```
+> ```
+> 16-Oct-2021 14:06:09.754 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+> 16-Oct-2021 14:06:09.754 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+> 16-Oct-2021 14:06:09.756 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@42f22995')
+> 0:0:0:0:0:0:0:1 - - [16/Oct/2021:14:14:11 -0400] "GET / HTTP/1.0" 200 11136
+> 0:0:0:0:0:0:0:1 - - [16/Oct/2021:14:17:21 -0400] "GET / HTTP/1.1" 200 11156
 
-##### Set tomcat7 to start on run level 3
-	chkconfig
-	chkconfig | grep tomcat
-	sudo chkconfig tomcat7 on 
-	chkconfig | grep tomcat
+##### Set tomcat to start on run level 3
+```
+chkconfig
+```
+```
+chkconfig | grep tomcat
+```
+```
+sudo chkconfig tomcat on 
+```
+> ```
+> Note: Forwarding request to 'systemctl enable tomcat.service'.
+> Created symlink /etc/systemd/system/multi-user.target.wants/tomcat.service → /usr/lib/systemd/system/tomcat.service.
+
+```
+ls -l /etc/systemd/system/multi-user.target.wants/tomcat.service
+```
+> ```
+> lrwxrwxrwx. 1 root root 38 Oct 16 14:25 /etc/systemd/system/multi-user.target.wants/tomcat.service -> /usr/lib/systemd/system/tomcat.service
+
+
+
 
 ##### Read the Tomcat config file
-	less /usr/share/tomcat7/conf/tomcat7.conf
+```
+less /usr/share/tomcat/conf/tomcat.conf
+```
 *This file is where the CATALINA_BASE and CATALINA_HOME environment variables are set*    
-```
-# System-wide configuration file for tomcat services
-# This will be sourced by tomcat and any secondary service
-# Values will be overridden by service-specific configuration
-# files in /etc/sysconfig
-#
-# Use this one to change default values for all services
-# Change the service specific ones to affect only one service
-# (see, for instance, /etc/sysconfig/tomcat7)
-#
-
-# Where your java installation lives
-JAVA_HOME="/usr/lib/jvm/jre"
-
-# Where your tomcat installation lives
-CATALINA_BASE="/usr/share/tomcat7"
-CATALINA_HOME="/usr/share/tomcat7"
-JASPER_HOME="/usr/share/tomcat7"
-CATALINA_TMPDIR="/var/cache/tomcat7/temp"
-
-# You can pass some parameters to java here if you wish to
-#JAVA_OPTS="-Xminf0.1 -Xmaxf0.3"
-
-# Use JAVA_OPTS to set java.library.path for libtcnative.so
-#JAVA_OPTS="-Djava.library.path=/usr/lib"
-
-# What user should run tomcat
-TOMCAT_USER="tomcat"
-
-# You can change your tomcat locale here
-#LANG="en_US"
-
-# Run tomcat under the Java Security Manager
-SECURITY_MANAGER="false"
-
-# Maximum time to wait in seconds, before killing process
-SHUTDOWN_WAIT="30"
-
-# Maximum time to wait in seconds, after killing the tomcat process
-KILL_SLEEP_WAIT="5"
-
-# Whether to annoy the user with "attempting to shut down" messages or not
-SHUTDOWN_VERBOSE="false"
-
-# Set the TOMCAT_PID location
-CATALINA_PID="/var/run/tomcat7.pid"
-
-# Connector port is 8080 for this tomcat instance
-#CONNECTOR_PORT="8080"
-
-# If you wish to further customize your tomcat environment,
-# put your own definitions here
-# (i.e. LD_LIBRARY_PATH for some jdbc drivers)
-```
 
 ##### Read the Tomcat init file
-    less /etc/init.d/tomcat7
-```bash
-#!/bin/bash
-#
-# tomcat      This shell script takes care of starting and stopping Tomcat
-#
-# chkconfig: - 80 20
-#
-### BEGIN INIT INFO
-# Provides: tomcat
-# Required-Start: $network $syslog
-# Required-Stop: $network $syslog
-# Default-Start:
-# Default-Stop:
-# Description: Release implementation for Servlet 3.0 and JSP 2.2
-# Short-Description: start and stop tomcat
-### END INIT INFO
-#
-# - originally written by Henri Gomez, Keith Irwin, and Nicolas Mailhot
-# - heavily rewritten by Deepak Bhole and Jason Corley
-#
-
-## Source function library.
-. /etc/rc.d/init.d/functions
-
-NAME="$(basename $0)"
-
-unset ISBOOT
-if [ "${NAME:0:1}" = "S" -o "${NAME:0:1}" = "K" ]; then
-    NAME="${NAME:3}"
-    ISBOOT="1"
-fi
-
-# For SELinux we need to use 'runuser' not 'su'
-if [ -x "/sbin/runuser" ]; then
-    SU="/sbin/runuser -s /bin/sh"
-else
-    SU="/bin/su -s /bin/sh"
-fi
-
-# Get the tomcat config (use this for environment specific settings)
-TOMCAT_CFG="/etc/tomcat7/tomcat7.conf"
-if [ -r "$TOMCAT_CFG" ]; then
-    . $TOMCAT_CFG
-fi
-
-# Get instance specific config file
-if [ -r "/etc/sysconfig/${NAME}" ]; then
-    . /etc/sysconfig/${NAME}
-fi
-
-# Define which connector port to use
-CONNECTOR_PORT="${CONNECTOR_PORT:-8080}"
-
-# Path to the tomcat launch script
-TOMCAT_SCRIPT="/usr/sbin/tomcat7"
-
-# Tomcat program name
-TOMCAT_PROG="${NAME}"
-
-# Define the tomcat username
-TOMCAT_USER="${TOMCAT_USER:-tomcat}"
-
-# Define the tomcat log file
-TOMCAT_LOG="${TOMCAT_LOG:-${CATALINA_HOME}/logs/${NAME}-initd.log}"
-
-# set kill timeout
-KILL_SLEEP_WAIT="${KILL_SLEEP_WAIT:-5}"
-
-RETVAL="0"
-
-# Look for open ports, as the function name might imply
-function findFreePorts() {
-    local isSet1="false"
-    local isSet2="false"
-    local isSet3="false"
-    local lower="8000"
-    randomPort1="0"
-    randomPort2="0"
-    randomPort3="0"
-    local -a listeners="( $(
-                        netstat -ntl | \
-                        awk '/^tcp/ {gsub("(.)*:", "", $4); print $4}'
-                    ) )"
-    while [ "$isSet1" = "false" ] || \
-          [ "$isSet2" = "false" ] || \
-          [ "$isSet3" = "false" ]; do
-        let port="${lower}+${RANDOM:0:4}"
-        if [ -z `expr " ${listeners[*]} " : ".*\( $port \).*"` ]; then
-            if [ "$isSet1" = "false" ]; then
-                export randomPort1="$port"
-                isSet1="true"
-            elif [ "$isSet2" = "false" ]; then
-                export randomPort2="$port"
-                isSet2="true"
-            elif [ "$isSet3" = "false" ]; then
-                export randomPort3="$port"
-                isSet3="true"
-            fi
-        fi
-    done
-}
-
-function makeHomeDir() {
-    if [ ! -d "$CATALINA_HOME" ]; then
-        echo "$CATALINA_HOME does not exist, creating"
-        if [ ! -d "/usr/share/${NAME}" ]; then
-            mkdir /usr/share/${NAME}
-            cp -pLR /usr/share/tomcat/* /usr/share/${NAME}
-        fi
-        mkdir -p /var/log/${NAME} \
-                 /var/cache/${NAME} \
-                 /var/tmp/${NAME}
-        ln -fs /var/cache/${NAME} ${CATALINA_HOME}/work
-        ln -fs /var/tmp/${NAME} ${CATALINA_HOME}/temp
-        cp -pLR /usr/share/${NAME}/bin $CATALINA_HOME
-        cp -pLR /usr/share/${NAME}/conf $CATALINA_HOME
-        ln -fs /usr/share/java/tomcat ${CATALINA_HOME}/lib
-        ln -fs /usr/share/tomcat/webapps ${CATALINA_HOME}/webapps
-        chown ${TOMCAT_USER}:${TOMCAT_USER} /var/log/${NAME}
-    fi
-}
-
-function parseOptions() {
-    options="export TOMCAT_NAME=${NAME};export TOMCAT_CFG=${TOMCAT_CFG};"
-    options="$options $(
-                 awk '!/^#/ && !/^$/ { ORS=" "; print "export ", $0, ";" }' \
-                 $TOMCAT_CFG
-             )"
-    if [ -r "/etc/sysconfig/${NAME}" ]; then
-        options="$options $(
-                     awk '!/^#/ && !/^$/ { ORS=" ";
-                                           print "export ", $0, ";" }' \
-                     /etc/sysconfig/${NAME}
-                 )"
-    fi
-    TOMCAT_SCRIPT="$options ${TOMCAT_SCRIPT}"
-}
-
-# See how we were called.
-function start() {
-
-   echo -n "Starting ${TOMCAT_PROG}: "
-   if [ "$RETVAL" != "0" ]; then
-     failure
-     return
-   fi
-   if [ -f "/var/lock/subsys/${NAME}" ]; then
-        if [ -s "/var/run/${NAME}.pid" ]; then
-            read kpid < /var/run/${NAME}.pid
-#           if checkpid $kpid 2>&1; then
-            if [ -d "/proc/${kpid}" ]; then
-                success
-                return 0
-            fi
-        fi
-    fi
-    # fix permissions on the log and pid files
-    export CATALINA_PID="/var/run/${NAME}.pid"
-    touch $CATALINA_PID 2>&1 || RETVAL="4"
-    if [ "$RETVAL" -eq "0" -a "$?" -eq "0" ]; then
-      chown ${TOMCAT_USER}:${TOMCAT_USER} $CATALINA_PID
-    fi
-    [ "$RETVAL" -eq "0" ] && touch $TOMCAT_LOG 2>&1 || RETVAL="4"
-    if [ "$RETVAL" -eq "0" -a "$?" -eq "0" ]; then
-      chown ${TOMCAT_USER}:${TOMCAT_USER} $TOMCAT_LOG
-    fi
-    if [ "$CATALINA_HOME" != "/usr/share/tomcat7" -a "$RETVAL" -eq "0" ]; then
-        # Create a tomcat directory if it doesn't exist
-        makeHomeDir
-        # If CATALINA_HOME doesn't exist modify port number so that
-        # multiple instances don't interfere with each other
-        findFreePorts
-        sed -i -e "s/8005/${randomPort1}/g" -e "s/8080/${CONNECTOR_PORT}/g" \
-            -e "s/8009/${randomPort2}/g" -e "s/8443/${randomPort3}/g" \
-            ${CATALINA_HOME}/conf/server.xml
-    fi
-    parseOptions
-    if [ "$RETVAL" -eq "0" -a "$SECURITY_MANAGER" = "true" ]; then
-        $SU - $TOMCAT_USER -c "${TOMCAT_SCRIPT} start-security" \
-            >> ${TOMCAT_LOG} 2>&1 || RETVAL="4"
-    else
-
-       [ "$RETVAL" -eq "0" ] && $SU - $TOMCAT_USER -c "${TOMCAT_SCRIPT} start" >> ${TOMCAT_LOG} 2>&1 || RETVAL="4"
-    fi
-    if [ "$RETVAL" -eq "0" ]; then
-        success
-        touch /var/lock/subsys/${NAME}
-    else
-        echo -n "Error code ${RETVAL}"
-        failure
-    fi
-}
-
-function stop() {
-    #check to see if pid file is good. We only want to stop tomcat7 if
-    #we started it from this init script
-    running_pid=$(pgrep -f catalina)
-    if [ -f /var/run/${NAME}.pid ]; then
-        read kpid junk< /var/run/${NAME}.pid
-        if [ -z "$kpid" ]; then
-            echo -n "PID file empty"
-            rm -f /var/lock/subsys/${NAME} /var/run/${NAME}.pid
-            failure
-            exit 4
-        fi
-        if [ -z "$running_pid" ]; then
-            echo -n "no ${NAME} running, but pid file exists - cleaning up"
-            rm -f /var/lock/subsys/${NAME} /var/run/${NAME}.pid
-            success
-            exit 0
-        fi
-        if [ -z "$(echo ${kpid} | fgrep -x "${running_pid}")" ]; then
-            echo -n "PID file does not match pid of any running ${NAME}"
-            failure
-            rm -f /var/lock/subsys/${NAME} /var/run/${NAME}.pid
-            exit 4
-        fi
-        parseOptions
-        #stop tomcat
-        echo -n "Stopping ${TOMCAT_PROG}: "
-        $SU - $TOMCAT_USER -c "${TOMCAT_SCRIPT} stop" >> ${TOMCAT_LOG} 2>&1 || RETVAL="4"
-        if [ "$RETVAL" -eq "4" ]; then
-            sleep 1
-            if [ "$SHUTDOWN_VERBOSE" = "true" ]; then
-                echo "Failed to stop ${NAME} normally, sending a graceful kill."
-            fi
-            kill $kpid > /dev/null 2>&1
-            sleep 1
-        fi
-        #wait for tomcat to really shutdown
-        count=0
-        until [ "$(ps --pid $kpid | grep -c $kpid)" -eq "0" ] || \
-          [ "$count" -gt "$SHUTDOWN_WAIT" ]; do
-            if [ "$SHUTDOWN_VERBOSE" = "true" ]; then
-                echo "waiting for processes ${NAME} ($kpid) to exit"
-            fi
-            sleep 1
-            let count="${count}+1"
-        done
-        if [ "$count" -gt "$SHUTDOWN_WAIT" ]; then
-            if [ "$SHUTDOWN_VERBOSE" = "true" ]; then
-                echo -n "Failed to stop ${NAME} ($kpid) gracefully after $SHUTDOWN_WAIT seconds, sending SIGKILL."
-            fi
-            warning
-            kill -9 $kpid
-            if [ "$SHUTDOWN_VERBOSE" = "true" ]; then
-                echo "Waiting for ${NAME} ($kpid) to exit."
-            fi
-            count=0
-            until [ "$(ps --pid $kpid | grep -c $kpid)" -eq "0" ] || \
-              [ "$count" -gt "$KILL_SLEEP_WAIT" ]; do
-                if [ "$SHUTDOWN_VERBOSE" = "true" ]; then
-                    echo "waiting for ${NAME} ($kpid) to exit. It could be in the UNINTERRUPTIBLE state"
-                fi
-                sleep 1
-                let count="${count}+1"
-            done
-        fi
-        #check to make sure tomcat is gone
-        if [ "$(ps --pid $kpid | grep -c $kpid)" -eq "0" ]; then
-            rm -f /var/lock/subsys/${NAME} /var/run/${NAME}.pid
-            RETVAL="0"
-            success
-        else
-            echo -n "Unable to stop ${NAME} ($kpid)"
-            RETVAL="4"
-            failure
-        fi
-    else
-        if [ -n "$running_pid" ]; then
-            echo -n "${NAME} running, but no pid file"
-            failure
-            RETVAL="4"
-        else
-            success
-        fi
-    fi
-    return $RETVAL
-}
-
-function usage()
-{
-   echo "Usage: $0 {start|stop|restart|condrestart|try-restart|reload|force-reload|status|version}"
-   RETVAL="2"
-}
-
-function rh_status()
-{
-    status -p /var/run/${NAME}.pid ${NAME}
-}
-
-function rh_status_q()
-{
-    rh_status >/dev/null 2>&1
-}
-
-# See how we were called.
-RETVAL="0"
-case "$1" in
-    start)
-        rh_status_q && exit 0
-        start
-        ;;
-    stop)
-        stop
-        ;;
-    restart)
-        stop
-        start
-        ;;
-    condrestart|try-restart)
-        if [ -s "/var/run/${NAME}.pid" ]; then
-            stop
-            start
-        fi
-        ;;
-    reload)
-        RETVAL="3"
-        ;;
-    force-reload)
-        if [ -s "/var/run/${NAME}.pid" ]; then
-            stop
-            start
-        fi
-        ;;
-    status)
-        if [ -s "/var/run/${NAME}.pid" ]; then
-            read kpid junk < /var/run/${NAME}.pid
-            if [ -d "/proc/${kpid}" ]; then
-                echo -n "${NAME} (pid ${kpid}) is running..."
-                success
-                RETVAL="0"
-            else
-# The pid file exists but the process is not running
-                echo -n "PID file exists, but process is not running"
-                warning
-                RETVAL="1"
-            fi
-        else
-            pid="$(/usr/bin/pgrep -d , -u ${TOMCAT_USER} -G ${TOMCAT_USER} java)"
-            if [ -z "$pid" ]; then
-                echo "${NAME} is stopped"
-                success
-                RETVAL="3"
-            else
-                echo "${NAME} (pid $pid) is running, but PID file is missing"
-                success
-                RETVAL="0"
-            fi
-        fi
-        ;;
-    version)
-        ${TOMCAT_SCRIPT} version
-        ;;
-    *)
-      usage
-      ;;
-esac
-
-exit $RETVAL
+```
+less /etc/init.d/tomcat
 ```
 ##### Read the Tomcat launch script
-    less /usr/sbin/tomcat7
-```bash
-#!/bin/bash
-
-if [ -r /usr/share/java-utils/java-functions ]; then
-  . /usr/share/java-utils/java-functions
-else
-  echo "Can't read Java functions library, aborting"
-  exit 1
-fi
-
-# Get the tomcat config (use this for environment specific settings)
-if [ -z "${TOMCAT_CFG}" ]; then
-  TOMCAT_CFG="/etc/tomcat7/tomcat7.conf"
-fi
-
-if [ -r "$TOMCAT_CFG" ]; then
-  . $TOMCAT_CFG
-fi
-
-# Only source the sysconfig file if TOMCAT_NAME or NAME is defined
-# This prevents issues when defining NAME in the config file while
-# still allowing the NAME environment variable to be set when executing
-# this script
-# By default the init script exports TOMCAT_NAME
-if [ -n "${TOMCAT_NAME}" -a -r "/etc/sysconfig/${TOMCAT_NAME}" ]; then
-    . /etc/sysconfig/${TOMCAT_NAME}
-elif [ -n "${NAME}" -a -r "/etc/sysconfig/${NAME}" ]; then
-    . /etc/sysconfig/${NAME}
-fi
-
-set_javacmd
-# CLASSPATH munging
-if [ -n "$JSSE_HOME" ]; then
-  CLASSPATH="${CLASSPATH}:$(build-classpath jcert jnet jsse 2>/dev/null)"
-fi
-CLASSPATH="${CLASSPATH}:${CATALINA_HOME}/bin/bootstrap.jar"
-CLASSPATH="${CLASSPATH}:${CATALINA_HOME}/bin/tomcat-juli.jar"
-CLASSPATH="${CLASSPATH}:$(build-classpath commons-daemon 2>/dev/null)"
-
-if [ "$1" = "start" ]; then
-  ${JAVACMD} $JAVA_OPTS $CATALINA_OPTS \
-    -classpath "$CLASSPATH" \
-    -Dcatalina.base="$CATALINA_BASE" \
-    -Dcatalina.home="$CATALINA_HOME" \
-    -Djava.endorsed.dirs="$JAVA_ENDORSED_DIRS" \
-    -Djava.io.tmpdir="$CATALINA_TMPDIR" \
-    -Djava.util.logging.config.file="${CATALINA_BASE}/conf/logging.properties" \
-    -Djava.util.logging.manager="org.apache.juli.ClassLoaderLogManager" \
-    org.apache.catalina.startup.Bootstrap start \
-    >> ${CATALINA_BASE}/logs/catalina.out 2>&1 &
-    if [ ! -z "$CATALINA_PID" ]; then
-      echo $! > $CATALINA_PID
-    fi
-elif [ "$1" = "start-security" ]; then
-  ${JAVACMD} $JAVA_OPTS $CATALINA_OPTS \
-    -classpath "$CLASSPATH" \
-    -Dcatalina.base="$CATALINA_BASE" \
-    -Dcatalina.home="$CATALINA_HOME" \
-    -Djava.endorsed.dirs="$JAVA_ENDORSED_DIRS" \
-    -Djava.io.tmpdir="$CATALINA_TMPDIR" \
-    -Djava.security.manager \
-    -Djava.security.policy=="${CATALINA_BASE}/conf/catalina.policy" \
-    -Djava.util.logging.config.file="${CATALINA_BASE}/conf/logging.properties" \
-    -Djava.util.logging.manager="org.apache.juli.ClassLoaderLogManager" \
-    org.apache.catalina.startup.Bootstrap start \
-    >> ${CATALINA_BASE}/logs/catalina.out 2>&1 &
-    if [ ! -z "$CATALINA_PID" ]; then
-      echo $! > $CATALINA_PID
-    fi
-elif [ "$1" = "stop" ]; then
-  ${JAVACMD} $JAVA_OPTS \
-    -classpath "$CLASSPATH" \
-    -Dcatalina.base="$CATALINA_BASE" \
-    -Dcatalina.home="$CATALINA_HOME" \
-    -Djava.endorsed.dirs="$JAVA_ENDORSED_DIRS" \
-    -Djava.io.tmpdir="$CATALINA_TMPDIR" \
-    org.apache.catalina.startup.Bootstrap stop \
-    >> ${CATALINA_BASE}/logs/catalina.out 2>&1
-elif [ "$1" = "version" ]; then
-  ${JAVACMD} -classpath ${CATALINA_HOME}/lib/catalina.jar \
-    org.apache.catalina.util.ServerInfo
-else
-  echo "Usage: $0 {start|start-security|stop|version}"
-  exit 1
-fi
 ```
-
+less /usr/sbin/tomcat
+```
 ##### Read the server.xml file
-    less /usr/share/tomcat7/conf/server.xml
-```xml
-<?xml version='1.0' encoding='utf-8'?>
-<!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-<!-- Note:  A "Server" is not itself a "Container", so you may not
-     define subcomponents such as "Valves" at this level.
-     Documentation at /docs/config/server.html
- -->
-<Server port="8005" shutdown="SHUTDOWN">
-  <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
-  <!-- Security listener. Documentation at /docs/config/listeners.html
-  <Listener className="org.apache.catalina.security.SecurityListener" />
-  -->
-  <!--APR library loader. Documentation at /docs/apr.html -->
-  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
-  <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
-  <Listener className="org.apache.catalina.core.JasperListener" />
-  <!-- Prevent memory leaks due to use of particular java/javax APIs-->
-  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
-  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
-  <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
-
-  <!-- Global JNDI resources
-       Documentation at /docs/jndi-resources-howto.html
-  -->
-  <GlobalNamingResources>
-    <!-- Editable user database that can also be used by
-         UserDatabaseRealm to authenticate users
-    -->
-    <Resource name="UserDatabase" auth="Container"
-              type="org.apache.catalina.UserDatabase"
-              description="User database that can be updated and saved"
-              factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
-              pathname="conf/tomcat-users.xml" />
-  </GlobalNamingResources>
-
-  <!-- A "Service" is a collection of one or more "Connectors" that share
-       a single "Container" Note:  A "Service" is not itself a "Container",
-       so you may not define subcomponents such as "Valves" at this level.
-       Documentation at /docs/config/service.html
-   -->
-  <Service name="Catalina">
-
-    <!--The connectors can use a shared executor, you can define one or more named thread pools-->
-    <!--
-    <Executor name="tomcatThreadPool" namePrefix="catalina-exec-"
-        maxThreads="150" minSpareThreads="4"/>
-    -->
-
-
-    <!-- A "Connector" represents an endpoint by which requests are received
-         and responses are returned. Documentation at :
-         Java HTTP Connector: /docs/config/http.html (blocking & non-blocking)
-         Java AJP  Connector: /docs/config/ajp.html
-         APR (HTTP/AJP) Connector: /docs/apr.html
-         Define a non-SSL HTTP/1.1 Connector on port 8080
-    -->
-    <Connector port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-    <!-- A "Connector" using the shared thread pool-->
-    <!--
-    <Connector executor="tomcatThreadPool"
-               port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-    -->
-    <!-- Define a SSL HTTP/1.1 Connector on port 8443
-         This connector uses the BIO implementation that requires the JSSE
-         style configuration. When using the APR/native implementation, the
-         OpenSSL style configuration is required as described in the APR/native
-         documentation -->
-    <!--
-    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
-               maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-               clientAuth="false" sslProtocol="TLS" />
-    -->
-
-    <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-
-
-    <!-- An Engine represents the entry point (within Catalina) that processes
-         every request.  The Engine implementation for Tomcat stand alone
-         analyzes the HTTP headers included with the request, and passes them
-         on to the appropriate Host (virtual host).
-         Documentation at /docs/config/engine.html -->
-
-    <!-- You should set jvmRoute to support load-balancing via AJP ie :
-    <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
-    -->
-    <Engine name="Catalina" defaultHost="localhost">
-
-      <!--For clustering, please take a look at documentation at:
-          /docs/cluster-howto.html  (simple how to)
-          /docs/config/cluster.html (reference documentation) -->
-      <!--
-      <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>
-      -->
-
-      <!-- Use the LockOutRealm to prevent attempts to guess user passwords
-           via a brute-force attack -->
-      <Realm className="org.apache.catalina.realm.LockOutRealm">
-        <!-- This Realm uses the UserDatabase configured in the global JNDI
-             resources under the key "UserDatabase".  Any edits
-             that are performed against this UserDatabase are immediately
-             available for use by the Realm.  -->
-        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
-               resourceName="UserDatabase"/>
-      </Realm>
-
-      <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true">
-
-        <!-- SingleSignOn valve, share authentication between web applications
-             Documentation at: /docs/config/valve.html -->
-        <!--
-        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
-        -->
-
-        <!-- Access log processes all example.
-             Documentation at: /docs/config/valve.html
-             Note: The pattern used is equivalent to using pattern="common" -->
-        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
-               prefix="localhost_access_log." suffix=".txt"
-               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-
-      </Host>
-    </Engine>
-  </Service>
-</Server>
 ```
-
+less /usr/share/tomcat/conf/server.xml
+```
 ##### Read the web.xml file
-    less /usr/share/tomcat7/conf/web.xml 
 ```
-
+less /usr/share/tomcat/conf/web.xml 
 ```
 ##### grep the contents of the passwd file to see that a user named tomcat has been created
-    cat /etc/passwd |grep tomcat
-    
-##### Add users to the Tomcat 7 users file
-    sudo vim /usr/share/tomcat7/conf/tomcat-users.xml
+```
+cat /etc/passwd |grep tomcat
+```    
+##### Add users to the Tomcat users file
+```
+sudo vim /usr/share/tomcat/conf/tomcat-users.xml
+```
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
 <tomcat-users>
@@ -826,34 +589,40 @@ fi
 </tomcat-users>
 ```
 ##### Restart the Tomcat service to pick up the changes to tomcat-users.xml
-	sudo service tomcat7 restart
-	
+```
+sudo service tomcat restart
+```	
 ##### Check environment variable for home directory
-	echo $HOME
-    
+```
+echo $HOME
+```    
 ##### Create a Build Properties file in your home directory
-	cd ~
-	pwd
-	vim build.properties
-
+```
+cd ~
+pwd
+vi build.properties
+```
 ##### Add Catalina home, app name, manager username and password to the build.properties file
 *These values are used by the build.xml file*  
 ```
-catalina.home=/usr/share/tomcat7
+catalina.home=/usr/share/tomcat
 app.name=hello
 manager.username=abc
 manager.password=123
 ```
-
 ##### Install git
-    sudo yum install git
-	
+```
+sudo yum install git
+```	
 ##### Create project folder
-    mkdir -p ~/git/tc-aws
-
+```
+mkdir -p ~/git/tc-aws
+```
 ##### Make a .gitignore file
-	cd git/tc-aws
-	nano .gitignore
+```
+cd git/tc-aws
+nano .gitignore
+```
 ```
 *.class
 
@@ -879,32 +648,41 @@ build/
 dist/
 ```
 ##### Initialize project repository
-    git init
-
+```
+git init
+```
 ##### Create remote repository
-    http://github.com/
-
+```
+http://github.com/
+```
 ##### Configure repository
-    git config user.name {username}
-    git config user.email {emailaddress@example.com}
-
+```
+git config user.name {username}
+git config user.email {emailaddress@example.com}
+```
 ##### Add remote origin to local repository
-    git remote add origin http://github.com/{username}/{projectname}.git
-
+```
+git remote add origin http://github.com/{username}/{projectname}.git
+```
 ##### Pull from remote
-    git pull origin master
-
+```
+git pull origin master
+```
 ##### Check status
-    git status
-    
+```
+git status
+```    
 ##### Push to remote
-    git push --set-upstream origin master
-
+```
+git push --set-upstream origin master
+```
 ##### Create Build XML File
-    cd ~/git/tc-aws
-    wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/build.xml.txt
-    cp build.xml.txt build.xml
-    nano build.xml
+```
+cd ~/git/tc-aws
+wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/build.xml.txt
+cp build.xml.txt build.xml
+nano build.xml
+```
 *Give the project a name in the project declaration*  
 *Set the app.name in build.properties*  
 *Set catalina.home in build.properties*  
