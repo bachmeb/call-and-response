@@ -22,14 +22,14 @@ cat /proc/version
 > ```
 > Linux version 5.13.4-200.fc34.x86_64 (mockbuild@bkernel01.iad2.fedoraproject.org) (gcc (GCC) 11.1.1 20210531 (Red Hat 11.1.1-3), GNU ld version 2.35.1-41.fc34) #1 SMP Tue Jul 20 20:27:29 UTC 2021
 
-##### Check the hostname of the ec2 instance
+##### Check the name of your linux host
 ```
 hostname
 ```
 > ```
 > fedora
 
-##### Check the DNS domain name of the ec2 instance
+##### Check the DNS domain name of the linux host
 ```
 dnsdomainname
 ```
@@ -64,7 +64,7 @@ java -version
 ##### Search yum for openjdk
 ```
 yum search openjdk
-```	
+```
 ##### Install the latest Open JDK version
 ```
 sudo yum install java-latest-openjdk
@@ -76,56 +76,57 @@ sudo yum install java-latest-openjdk
 > Nothing to do.
 > Complete!
 
+
 ##### Update the latest version of Open JDK
 ```
 sudo yum update java-latest-openjdk
-```
-> ```
+``` 
+> ``` 
 > Last metadata expiration check: 0:08:14 ago on Sat 16 Oct 2021 12:59:35 PM EDT.
 > Dependencies resolved.
-> ================================================================================================================================
+> ===================================================================================================================
 >  Package               Architecture                       Version                 Repository                            Size
-> ================================================================================================================================
+> ===================================================================================================================
 > Upgrading:
 >  java-latest-openjdk            x86_64             1:17.0.0.0.35-1.rolling.fc34            updates                      229 k
 >  java-latest-openjdk-headless   x86_64             1:17.0.0.0.35-1.rolling.fc34            updates                       40 M
 > 
 > Transaction Summary
-> ================================================================================================================================
+> ===================================================================================================================
 > Upgrade  2 Packages
 > 
 > Total download size: 40 M
 > Is this ok [y/N]: 
 > Downloading Packages:
-> (1/2): java-latest-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64.rpm                                                                                                      158 kB/s | 229 kB     00:01    
-> (2/2): java-latest-openjdk-headless-17.0.0.0.35-1.rolling.fc34.x86_64.rpm                                                                                             2.4 MB/s |  40 MB     00:16    
-> --------------------------------------------------------------------------------------------------------------------------------
-> Total                                                                                                                                                                 2.3 MB/s |  40 MB     00:17     
+> (1/2): java-latest-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64.rpm 	158 kB/s | 229 kB     00:01    
+> (2/2): java-latest-openjdk-headless-17.0.0.0.35-1.rolling.fc34.x86_64.rpm 	2.4 MB/s |  40 MB     00:16    
+> -------------------------------------------------------------------------------------------------------------------
+> Total		2.3 MB/s |  40 MB     00:17     
 > Running transaction check
 > Transaction check succeeded.
 > Running transaction test
 > Transaction test succeeded.
 > Running transaction
->   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      1/1 
->   Preparing        :                                                                                                       1/1 
->   Upgrading        : java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      1/4 
->   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      1/4 
->   Upgrading        : java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                               2/4 
->   Running scriptlet: java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                               2/4 
->   Cleanup          : java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_                                                  3/4 
->   Running scriptlet: java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                3/4 
->   Cleanup          : java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                              4/4 
->   Running scriptlet: java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                       4/4 
->   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                             4/4 
->   Running scriptlet: java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                                      4/4 
->   Running scriptlet: java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                              4/4 
->   Verifying        : java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                                      1/4 
->   Verifying        : java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                                       2/4 
->   Verifying        : java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                                                                                             3/4 
->   Verifying        : java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64                                                                                                              4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64		1/1 
+>   Preparing        :	1/1 
+>   Upgrading        : java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64 1/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64 1/4 
+>   Upgrading        : java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64 2/4 
+>   Running scriptlet: java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64 2/4 
+>   Cleanup          : java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_ 3/4 
+>   Running scriptlet: java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64 3/4 
+>   Cleanup          : java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64 4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64 4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64 4/4 
+>   Running scriptlet: java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64 4/4 
+>   Running scriptlet: java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64 4/4 
+>   Verifying        : java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64 1/4 
+>   Verifying        : java-latest-openjdk-1:16.0.1.0.9-4.rolling.fc34.x86_64 2/4 
+>   Verifying        : java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64 3/4 
+>   Verifying        : java-latest-openjdk-headless-1:16.0.1.0.9-4.rolling.fc34.x86_64 4/4 
 > 
 > Upgraded:
->   java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64                                       java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64                                      
+>   java-latest-openjdk-1:17.0.0.0.35-1.rolling.fc34.x86_64 java-latest-openjdk-headless-1:17.0.0.0.35-1.rolling.fc34.x86_64 
 > 
 > Complete!
 > 
@@ -177,6 +178,7 @@ ls -la /etc/alternatives/jre
 > ```
 > lrwxrwxrwx. 1 root root 62 Oct 16 13:15 /etc/alternatives/jre -> /usr/lib/jvm/java-17-openjdk-17.0.0.0.35-1.rolling.fc34.x86_64
 
+
 ##### Check the java version
 ```
 java -version
@@ -186,6 +188,7 @@ java -version
 > OpenJDK Runtime Environment 21.9 (build 17+35)
 > OpenJDK 64-Bit Server VM 21.9 (build 17+35, mixed mode, sharing)
 
+
 ##### Check the Java compiler version
 ```
 javac -version
@@ -193,10 +196,12 @@ javac -version
 > ```
 > javac 11.0.11
 
+
 ##### Install the latest java compiler version
-```
+``` 
 sudo yum install java-latest-openjdk-devel
 ```
+> ``` 
 > Last metadata expiration check: 0:38:10 ago on Sat 16 Oct 2021 12:59:35 PM EDT.
 > Dependencies resolved.
 > ============================================================================================================
@@ -303,20 +308,20 @@ yum --enablerepo="*" list available | grep tomcat
 ```
 > ```
 > yum list available | grep tomcat
-> tomcat.noarch                                                                            1:9.0.53-1.fc34                                                  updates              
-> tomcat-admin-webapps.noarch                                                              1:9.0.53-1.fc34                                                  updates              
-> tomcat-docs-webapp.noarch                                                                1:9.0.53-1.fc34                                                  updates              
-> tomcat-el-3.0-api.noarch                                                                 1:9.0.53-1.fc34                                                  updates              
-> tomcat-jsp-2.3-api.noarch                                                                1:9.0.53-1.fc34                                                  updates              
-> tomcat-jsvc.noarch                                                                       1:9.0.53-1.fc34                                                  updates              
-> tomcat-lib.noarch                                                                        1:9.0.53-1.fc34                                                  updates              
-> tomcat-native.x86_64                                                                     1.2.23-4.fc34                                                    fedora               
-> tomcat-servlet-4.0-api.noarch                                                            1:9.0.53-1.fc34                                                  updates              
-> tomcat-taglibs-parent.noarch                                                             3-14.fc34                                                        fedora               
-> tomcat-taglibs-standard.noarch                                                           1.2.5-13.fc34                                                    fedora               
-> tomcat-taglibs-standard-javadoc.noarch                                                   1.2.5-13.fc34                                                    fedora               
-> tomcat-webapps.noarch                                                                    1:9.0.53-1.fc34                                                  updates              
-> tomcatjss.noarch                                                                         7.6.1-2.fc34                                                     fedora               
+> tomcat.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-admin-webapps.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-docs-webapp.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-el-3.0-api.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-jsp-2.3-api.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-jsvc.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-lib.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-native.x86_64 1.2.23-4.fc34 fedora               
+> tomcat-servlet-4.0-api.noarch 1:9.0.53-1.fc34 updates              
+> tomcat-taglibs-parent.noarch 3-14.fc34 fedora               
+> tomcat-taglibs-standard.noarch 1.2.5-13.fc34 fedora               
+> tomcat-taglibs-standard-javadoc.noarch 1.2.5-13.fc34 fedora               
+> tomcat-webapps.noarch 1:9.0.53-1.fc34 updates              
+> tomcatjss.noarch 7.6.1-2.fc34 fedora               
 > 
 
 ##### Search yum for tomcat
@@ -474,10 +479,8 @@ sudo yum install lynx
 lynx localhost:8080
 ```
 > ```
->                                              Apache Tomcat/9.0.53 (p1 of 3)
+>    Apache Tomcat/9.0.53 (p1 of 3)
 >    Home Documentation Configuration Examples Wiki Mailing Lists Find Help
-> 
-> Apache Tomcat/9.0.53
 > 
 > If you're seeing this, you've successfully installed Tomcat. Congratulations!
 > 
@@ -530,9 +533,6 @@ sudo find /usr/share/tomcat/logs/ -name localhost* -exec cat {} \;
 chkconfig
 ```
 ```
-chkconfig | grep tomcat
-```
-```
 sudo chkconfig tomcat on 
 ```
 > ```
@@ -545,19 +545,12 @@ ls -l /etc/systemd/system/multi-user.target.wants/tomcat.service
 > ```
 > lrwxrwxrwx. 1 root root 38 Oct 16 14:25 /etc/systemd/system/multi-user.target.wants/tomcat.service -> /usr/lib/systemd/system/tomcat.service
 
-
-
-
 ##### Read the Tomcat config file
 ```
 less /usr/share/tomcat/conf/tomcat.conf
 ```
 *This file is where the CATALINA_BASE and CATALINA_HOME environment variables are set*    
 
-##### Read the Tomcat init file
-```
-less /etc/init.d/tomcat
-```
 ##### Read the Tomcat launch script
 ```
 less /usr/sbin/tomcat
@@ -576,7 +569,7 @@ cat /etc/passwd |grep tomcat
 ```    
 ##### Add users to the Tomcat users file
 ```
-sudo vim /usr/share/tomcat/conf/tomcat-users.xml
+sudo vi /usr/share/tomcat/conf/tomcat-users.xml
 ```
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
